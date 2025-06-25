@@ -43,6 +43,9 @@ This example, unmodified, will run the create a `report.md` file with the output
 
 The database_assistant Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
 
+![image](https://github.com/user-attachments/assets/dbba8bdc-81fe-45a5-8150-69bedb291453)
+![image](https://github.com/user-attachments/assets/9a4812dc-b67c-4b11-9209-f3fbf3513e6e)
+
 ## Support
 
 For support, questions, or feedback regarding the DatabaseAssistant Crew or crewAI.
