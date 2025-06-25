@@ -1,0 +1,38 @@
+extract_intent:
+  description: >
+    Analyze the following user query and extract the intent (e.g., data retrieval, comparison, schema check):
+
+    {user_query}
+  expected_output: >
+    A structured summary of the user's intent and any relevant entities or actions.
+  agent: NLIntentAgent
+
+fetch_schema:
+  description: >
+    Use the schema tool to fetch the database schema, table names, and column metadata.
+  expected_output: >
+    A structured representation of the database schema, including tables and columns.
+  agent: SchemaToolAgent
+
+map_tables:
+  description: >
+    Using the extracted intent and the database schema in the knowledge base, identify and list the most relevant tables and columns for the user's query.
+    User query: {user_query}
+    Schema: (see knowledge base)
+  expected_output: >
+    A list of the most relevant tables and columns for the user's query, with a brief explanation for each mapping.
+  agent: TableMappingAgent
+
+build_sql:
+  description: >
+    Based on the mapped tables/columns and the user's intent, generate the most accurate and relevant SQL query to answer the user's question. Only output the SQL query, nothing else.
+  expected_output: >
+    The most accurate and relevant SQL query string for the user's request.
+  agent: SQLBuilderAgent
+
+execute_sql:
+  description: >
+    Execute the SQL query generated in the previous step using the Postgres SQL Executor tool. Only output the result of the query, nothing else.
+  expected_output: >
+    The result of the executed SQL query.
+  agent: SQLExecutorAgent
